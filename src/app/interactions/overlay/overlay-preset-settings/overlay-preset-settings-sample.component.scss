@@ -1,0 +1,74 @@
+@use '../../../../variables' as *;
+
+:host {
+    position: relative;
+    display: block;
+    padding: rem(12px);
+}
+
+@include b(outlet-group) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: color($color: 'grays', $variant: 100);
+    border: 2px dashed color($color: 'grays', $variant: 200);
+    border-radius: rem(8px);
+    padding: rem(12px);
+    height: 376px;
+
+    @include e(anchor) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem(80px);
+        height: rem(80px);
+        margin-bottom: rem(24px);
+        border: 2px dashed color($color: 'grays', $variant: 300);
+        border-radius: rem(8px);
+        color: color($color: 'grays', $variant: 800);
+
+        igx-icon {
+            font-size: 64px;
+            width: 64px;
+            height: 64px;
+        }
+    }
+
+    @include e(anchor, active) {
+        border-color: color($color: 'primary');
+    }
+
+    @include e(title) {
+        text-align: center;
+        margin: 0;
+        color: color($color: 'grays', $variant: 800);
+    }
+
+    @include e(subtitle) {
+        text-align: center;
+        margin: 0;
+        color: color($color: 'grays', $variant: 600);
+    }
+
+    @include m(active) {
+        border-color: color($color: 'primary');
+    }
+}
+
+@include b(filter-group) {
+    @include e(header) {
+
+        h1 {
+            font-size: rem(12px);
+            margin-bottom: rem(8px);
+        }
+    }
+}
+
+
+[igxButton="raised"] {
+    margin: rem(24px) 0;
+}
+

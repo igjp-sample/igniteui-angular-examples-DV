@@ -1,0 +1,14 @@
+
+<igx-combo #remoteCombo class="combo"
+           [itemsMaxHeight]="250"
+           [data]="rData | async"
+           [valueKey]="'ProductID'"
+           [displayKey]="'ProductName'"
+           (dataPreLoad)="dataLoading($event)"
+           (searchInputUpdate)="searchInput($event)"
+           (opening)="searchInput('')"
+           placeholder="Location(s)"
+           searchPlaceholder="Search..."
+           [filterable]="false">
+</igx-combo>
+<igx-toast #loadingToast></igx-toast>

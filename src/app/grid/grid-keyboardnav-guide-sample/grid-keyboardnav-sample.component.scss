@@ -1,0 +1,61 @@
+@use '../../../variables' as *;
+
+$my-color: color($color: 'success');
+
+$custom-checkbox-theme: checkbox-theme(
+    $fill-color: $my-color,
+    $border-radius: 10px
+);
+
+.list-sample ::ng-deep {
+    @include checkbox($custom-checkbox-theme);
+}
+
+.sample {
+    display: flex;
+
+    .grid_wrapper {
+        padding-left: 15px;
+        padding-top: 15px;
+        width: 75%;
+    }
+
+
+    .list-sample {
+        padding-top: 15px;
+        width: 20%;
+
+        .disabled {
+            opacity: .4;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        igx-list {
+            .igx-list__item-line-title, .igx-list__item-line-subtitle {
+                font-size: 13px;
+            }
+
+            height: 450px;
+            box-shadow: elevation($elevation: 2);
+        }
+
+        .empty-list {
+            opacity: 1;
+            h6 {
+                padding: 15px;
+                font-size: 15px;
+            }
+
+            ul {
+                li {
+                    font-size: 13px;
+                }
+                margin-left: 15px;
+                font-weight: 400;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use '../../../../variables' as *;
+
+:host {
+    display: block;
+    margin: 16px;
+
+    igx-list {
+        max-width: 336px;
+        overflow: visible;
+    }
+
+    igx-list-item {
+        z-index: 0;
+
+        &.dragged {
+            box-shadow: elevation($elevation: 8);
+            z-index: 1;
+        }
+    }
+
+    igx-icon {
+        cursor: move;
+        user-select: none;
+    }
+}
+

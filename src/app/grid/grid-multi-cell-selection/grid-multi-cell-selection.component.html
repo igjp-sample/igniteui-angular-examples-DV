@@ -1,0 +1,24 @@
+<div class="wrapper centered">
+    <h5>Perform range selection on the left Grid to transfer data to the right Grid</h5>
+</div>
+<div class="wrapper">
+    <div class="left">
+        <igx-grid igxPreventDocumentScroll #source
+            width="100%"
+            [allowFiltering]="true"
+            filterMode="excelStyleFilter"
+            (rangeSelected)="transferData(source, target, notification)"
+            (columnInit)="initColumn($event)"
+            (sortingDone)="transferExpressions(source, target, 'sort')"
+            (filteringDone)="transferExpressions(source, target, 'filter')"
+            [data]="sourceData" height="600px" autoGenerate="true">
+        </igx-grid>
+    </div>
+    <div class="right">
+        <igx-grid igxPreventDocumentScroll #target width="100%"
+            [data]="targetData" height="600px" autoGenerate="true"
+            (columnInit)="initColumn($event)">
+        </igx-grid>
+    </div>
+</div>
+<igx-toast #notification></igx-toast>

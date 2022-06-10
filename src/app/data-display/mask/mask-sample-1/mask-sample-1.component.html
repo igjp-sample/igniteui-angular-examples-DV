@@ -1,0 +1,7 @@
+<igx-input-group>
+    <label igxLabel for="birthday">Birthday</label>
+    <input igxInput #dateInput [igxMask]="'00/00/0000'" [igxTextSelection]="true" name="birthday" type="text"
+        (blur)="validateDate(dateInput, snackbar)" />
+</igx-input-group>
+
+<igx-snackbar #snackbar></igx-snackbar>

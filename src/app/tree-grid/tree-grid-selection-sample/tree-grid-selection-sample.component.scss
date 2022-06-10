@@ -1,0 +1,29 @@
+.grid-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+    align-items: flex-start;
+    position: relative;
+    > * {
+        margin-bottom: 16px;
+    }
+}
+
+.sample-container {
+    margin: 16px;
+}
+
+igx-buttongroup {
+    width: 500px;
+}
+
+.igx-snackbar {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    display: flex;
+    igx-icon {
+        margin: 20px;
+    }
+}

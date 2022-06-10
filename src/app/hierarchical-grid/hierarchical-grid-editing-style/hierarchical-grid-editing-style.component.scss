@@ -1,0 +1,50 @@
+@use '../../../variables' as *;
+
+$white: #fff;
+$blue: #4567bb;
+
+$color-palette: palette($primary: $white, $secondary: $blue);
+
+$grid-theme: grid-theme(
+    $cell-editing-background: $blue,
+    $cell-edited-value-color: $white,
+    $cell-active-border-color: $white,
+    $edit-mode-color: color($color-palette, "secondary", 200)
+);
+
+$input-theme: input-group-theme(
+    $palette: $color-palette,
+    $filled-text-color: $white,
+    $focused-text-color: $white,
+    $idle-text-color: $white,
+    $idle-bottom-line-color: $white,
+    $focused-bottom-line-color: $white,
+    $interim-bottom-line-color: $white,
+    $hover-bottom-line-color: $white,
+    $box-background: $blue
+);
+
+$checkbox-theme: checkbox-theme(
+    $empty-color: color($color-palette, "secondary", 200),
+    $fill-color: $white,
+    $tick-color: $blue
+);
+
+$datepicker-theme: calendar-theme(
+    $date-selected-text-color: $white,
+    $date-selected-background: $blue
+);
+
+:host {
+    ::ng-deep {
+        @include checkbox($checkbox-theme);
+        @include input-group($input-theme);
+        @include calendar($datepicker-theme);
+        @include grid($grid-theme);
+    }
+}
+
+.grid__wrapper {
+    margin: 0 auto;
+    padding: 16px;
+}

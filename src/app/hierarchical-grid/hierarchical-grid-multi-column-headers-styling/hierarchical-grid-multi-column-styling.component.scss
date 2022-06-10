@@ -1,0 +1,18 @@
+@use '../../../variables' as *;
+
+$custom-theme: grid-theme(
+    $header-background: #e0f3ff,
+    $header-text-color: #e41c77,
+    $header-border-width: 1px,
+    $header-border-style: solid,
+    $header-border-color: rgba(0, 0, 0, 0.08)
+);
+:host {
+  ::ng-deep {
+    @include grid($custom-theme);
+  }
+}
+
+.grid__wrapper {
+    padding: 16px;
+}

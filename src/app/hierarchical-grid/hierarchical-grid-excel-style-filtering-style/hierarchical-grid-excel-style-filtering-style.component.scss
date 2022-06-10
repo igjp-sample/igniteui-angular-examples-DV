@@ -1,0 +1,84 @@
+@use '../../../variables' as *;
+
+$yellow: #ffcd0f;
+$black: #292826;
+
+$custom-grid: grid-theme(
+    $filtering-row-background: $yellow
+);
+
+$custom-flat-button: button-theme(
+    $background: $yellow,
+    $foreground: $black,
+    $hover-background: $black,
+    $hover-foreground: $yellow
+);
+
+$custom-raised-button: button-theme(
+    $background: $black,
+    $foreground: $yellow,
+    $hover-background: $black,
+    $hover-foreground: $yellow
+);
+
+$custom-button-group: button-group-theme(
+    $item-background: $yellow,
+    $item-text-color: $black,
+    $item-hover-background: $black,
+    $item-hover-text-color: $yellow
+);
+
+$custom-input-group: input-group-theme(
+    $box-background: $yellow,
+    $idle-text-color: $black,
+    $focused-text-color: $black,
+    $filled-text-color: $black
+);
+
+$custom-list: list-theme(
+    $background: $yellow
+);
+
+$custom-checkbox: checkbox-theme(
+    $empty-color: $black,
+    $fill-color: $black,
+    $tick-color: $yellow,
+    $label-color: $black
+);
+
+$custom-drop-down: drop-down-theme(
+    $background-color: $yellow,
+    $selected-item-background: lighten($black, 10%),
+    $selected-focus-item-background: lighten($black, 15%),
+    $item-text-color: $black,
+    $hover-item-background: $black,
+    $hover-item-text-color: $yellow
+);
+
+:host {
+    ::ng-deep {
+        @include grid($custom-grid);
+        @include drop-down($custom-drop-down);
+        @include input-group($custom-input-group);
+        @include checkbox($custom-checkbox);
+        @include list($custom-list);
+        @include button($custom-flat-button);
+        @include button-group($custom-button-group);
+
+        .igx-excel-filter__apply {
+            @include button($custom-raised-button);
+        }
+    }
+}
+
+.wrapper {
+    margin: 16px;
+}
+
+.photo {
+    vertical-align: middle;
+    max-height: 62px;
+}
+.cell__inner_2 {
+    margin: 1px
+}

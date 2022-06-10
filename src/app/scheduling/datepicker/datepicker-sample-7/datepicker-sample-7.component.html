@@ -1,0 +1,10 @@
+<div class="date-picker-wrapper">
+    <igx-date-picker [value]="currentDate" name="date">
+        <label igxLabel>Date</label>
+        <igx-picker-toggle igxSuffix>
+            <igx-icon>event_note</igx-icon>
+        </igx-picker-toggle>
+    </igx-date-picker>
+    <label>Date: {{ currentDate | date:'longDate'}}</label>
+    <igx-snackbar #snackbar></igx-snackbar>
+</div>

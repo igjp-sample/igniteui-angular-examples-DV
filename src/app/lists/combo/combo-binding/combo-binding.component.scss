@@ -1,0 +1,36 @@
+button {
+    margin: 0 8px;
+}
+
+.sample-wrapper {
+    margin: 16px;
+    max-height: 600px;
+}
+
+.combo-section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 630px;
+    flex-flow: row wrap;
+    margin-bottom: 16px;
+}
+
+.combo {
+    width: 430px;
+}
+
+.cities-container {
+    max-width: 630px;
+    max-height: 450px;
+    overflow-y: auto;
+
+    igx-card {
+        margin: 8px 8px 8px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    button {
+        margin: 16px 0;
+    }
+}

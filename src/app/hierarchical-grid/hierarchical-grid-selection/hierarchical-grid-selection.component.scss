@@ -1,0 +1,34 @@
+.photo {
+    vertical-align: middle;
+    max-height: 62px;
+}
+
+.cell__inner_2 {
+    margin: 1px
+}
+
+.grid-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+    align-items: flex-start;
+    position: relative;
+    > * {
+        margin-bottom: 16px;
+    }
+}
+
+.grid__wrapper{
+    padding: 16px;
+}
+
+.igx-snackbar {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    display: flex;
+    igx-icon {
+        margin: 20px;
+    }
+}

@@ -1,0 +1,18 @@
+@use '../../../variables' as *;
+
+.wrapper {
+    padding: 16px;
+}
+
+$custom-theme: grid-theme(
+  $cell-active-border-color: #ffcd0f,
+  $cell-selected-background: #6f6f6f,
+  $row-hover-background: #fde069,
+  $row-selected-background: #8d8d8d,
+  $header-background: #494949,
+  $header-text-color: #fff,
+  $sorted-header-icon-color: #ffcd0f,
+  $sortable-header-icon-hover-color: #e9bd0d
+);
+
+@include grid($custom-theme);

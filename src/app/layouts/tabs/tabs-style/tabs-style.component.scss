@@ -1,0 +1,32 @@
+@use '../../../../variables' as *;
+
+$yellow-color: #F4D45C;
+$black-color: #292826;
+
+$dark-palette: palette(
+    $primary: $black-color,
+    $secondary: $yellow-color
+);
+
+$dark-tabs: tabs-theme(
+    $palette: $dark-palette,
+    $item-text-color: color($dark-palette, "secondary", 400),
+    $item-background: color($dark-palette, "primary", 400),
+    $item-hover-background: color($dark-palette, "secondary", 400),
+    $item-hover-color: color($dark-palette, "primary", 400),
+    $item-active-color: color($dark-palette, "secondary", 400),
+    $item-active-icon-color: color($dark-palette, "secondary", 400),
+    $indicator-color: color($dark-palette, "secondary", 400),
+    $tab-ripple-color: color($dark-palette, "secondary", 400)
+);
+
+:host {
+    igx-tab-content {
+        padding: 8px;
+    }
+
+    ::ng-deep {
+        @include tabs($dark-tabs);
+    }
+}
+

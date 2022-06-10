@@ -1,0 +1,36 @@
+@use '../../../variables' as *;
+
+.grid__wrapper {
+    margin: 0 16px;
+    padding-top: 10px;
+}
+
+$dark-paginator: paginator-theme( $text-color: #F4D45C, $background-color: #575757, $border-color: #292826);
+
+$dark-button: button-theme(
+    $foreground: #FFCD0F,
+    $hover-foreground: #292826,
+    $hover-background: #FFCD0F,
+    $focus-foreground: #292826,
+    $focus-background: #FFCD0F,
+    $disabled-foreground: #16130C
+);
+
+:host {
+     ::ng-deep {
+        @include paginator($dark-paginator);
+        .igx-paginator__pager {
+            @include button($dark-button);
+        }
+    }
+}
+
+
+.photo {
+    vertical-align: middle;
+    max-height: 62px;
+}
+
+.cell__inner_2 {
+    margin: 1px
+}

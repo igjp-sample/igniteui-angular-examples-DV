@@ -1,0 +1,188 @@
+@use '@angular/material' as mat;
+@use "../../../variables" as *;
+@use "@angular/material/theming";
+
+$custom-typography: mat.define-typography-config(
+    $font-family: $material-typeface,
+    $button: mat.define-typography-level(14px, $font-weight: 600)
+);
+
+$saturations: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700);
+
+@function material-like-palette(
+    $color,
+    $saturations,
+    $palette,
+) {
+    $shade: ();
+    $contrast: ();
+    $result: ();
+    @each $saturation in $saturations {
+        $shade: map-merge($shade, ($saturation: color($palette, $color, $saturation)));
+        $contrast: map-merge($contrast, ($saturation: color($palette, $color, #{$saturation}-contrast)));
+        $result: map-merge($shade, (contrast: $contrast));
+    }
+
+    @return $result;
+}
+
+$igx-light-palette: palette(
+    $primary: #09f,
+    $secondary: #e41c77
+);
+
+$custom-dark-palette: palette(
+    $primary: #011627,
+    $secondary: #72da67,
+    $grays: #fff,
+    $surface: #222,
+);
+
+$light-palette-primary: mat.define-palette(material-like-palette('primary', $saturations, $igx-light-palette));
+$light-palette-accent: mat.define-palette(material-like-palette('secondary', $saturations, $igx-light-palette));
+$custom-mat-light-theme: mat.define-light-theme($light-palette-primary, $light-palette-accent);
+
+$dark-palette-primary: mat.define-palette(material-like-palette('primary', $saturations, $custom-dark-palette));
+$dark-palette-accent: mat.define-palette(material-like-palette('secondary', $saturations, $custom-dark-palette));
+$custom-mat-dark-theme: mat.define-dark-theme($dark-palette-primary, $dark-palette-accent);
+
+.navbar-brand {
+    margin-right: 16px;
+}
+
+mat-toolbar div {
+    margin-left: auto;
+
+    igx-avatar {
+        margin-right: 8px;
+    }
+}
+
+.card-wrapper {
+    margin: 16px;
+    flex: 1 0 25%;
+}
+
+.slider-wrapper {
+    padding: 16px 0;
+    flex: 1 0 25%;
+
+    p {
+        margin-bottom: 0;
+        padding: 0 8px;
+    }
+}
+
+.card-panel {
+    margin: 8px 16px;
+    box-shadow: elevation($elevation: 2);
+}
+
+.mat-slider {
+    width: 100%;
+}
+
+.mat-button, .mat-stroked-button {
+    text-transform: uppercase;
+}
+
+igx-expansion-panel-header h5 {
+    margin-top: 0;
+}
+
+igx-expansion-panel-body {
+    padding: 16px;
+}
+
+:host {
+    display: block;
+    height: auto;
+    min-height: 100%;
+
+    @include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
+
+    &.light {
+        @include color-classes($palette: $igx-light-palette, $prop: "background", $prefix: "bg");
+
+        background: color($igx-light-palette, 'surface');
+
+        #Path1 {
+            fill: color($igx-light-palette, 'secondary');
+        }
+
+        #Path2 {
+            stroke: color($igx-light-palette, 'secondary');
+            stroke-width: "0.8";
+        }
+
+        .primary {
+            color: color($igx-light-palette, 'primary');
+            margin-left: 32px;
+        }
+    }
+
+    &.dark {
+        @include color-classes($palette: $custom-dark-palette, $prop: "background", $prefix: "bg");
+
+        background: color($custom-dark-palette, 'surface');
+
+        #Path1 {
+            fill: color($custom-dark-palette, 'secondary');
+        }
+
+        #Path2 {
+            stroke: color($custom-dark-palette, 'secondary');
+            stroke-width: "0.8";
+        }
+
+        ::ng-deep {
+            .primary {
+                color: color($custom-dark-palette, 'primary', 100);
+                margin-left: 32px;
+            }
+
+            .mat-step-header .mat-step-icon-selected {
+                background-color: color($custom-dark-palette, 'secondary');
+            }
+
+            .mat-accent .mat-slider-thumb,
+            .mat-accent .mat-slider-track-fill {
+                background-color: color($custom-dark-palette, 'primary', 100);
+            }
+
+            .mat-stepper-horizontal {
+                background: color($custom-dark-palette, 'surface');
+            }
+
+            igx-expansion-panel h5 {
+                color: color($custom-dark-palette, 'grays', 800);
+            }
+        }
+    }
+
+    &.light,
+    &.dark {
+        .success {
+            color: color($igx-light-palette, "success");
+        }
+
+        .error {
+            color: color($igx-light-palette, "error");
+        }
+
+        .warning {
+            color: color($igx-light-palette, "warn");
+        }
+    }
+}
+
+::ng-deep {
+    @include mat.core($custom-typography);
+    @include theme($igx-light-palette);
+    @include mat.all-component-themes($custom-mat-light-theme);
+
+    .dark {
+        @include dark-theme($custom-dark-palette);
+        @include mat.all-component-themes($custom-mat-dark-theme);
+    }
+}

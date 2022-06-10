@@ -1,0 +1,89 @@
+@use '../../../../variables' as *;
+
+.header-footer-select-sample {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 48px;
+}
+
+:host ::ng-deep {
+    .select__entry {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            display: flex;
+            padding: 8px;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+}
+
+igx-select {
+    min-width: 320px;
+}
+
+.custom-select-header,
+.custom-select-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    background: color($color: 'grays', $variant: 100);
+    igx-icon {
+        &.important-icon {
+            color: color($color: 'primary', $variant: 500);
+        }
+    }
+}
+
+.sample-template-icons,
+.sample-template-icons__item {
+    display: flex;
+    align-items: center;
+    igx-icon {
+        margin-right: 8px;
+    }
+}
+
+.sample-template-icons__item {
+    margin-left: 32px;
+}
+
+.custom-select-header {
+    height: 56px;
+}
+
+.custom-select-footer {
+    height: 44px;
+}
+
+.sample-template-heading {
+    font-size: 12px;
+}
+
+.sample-template-heading {
+    color: color($color: 'secondary');
+}
+
+$custom-button-group: button-group-theme(
+    $schema: $light-schema,
+    $shadow: none,
+    $border-radius: 0,
+    $item-background: color($color: 'grays', $variant: 300),
+    $item-text-color: color($color: 'grays', $variant: 700),
+    $item-hover-background: color($color: 'grays', $variant: 400),
+    $item-hover-text-color: color($color: 'grays', $variant: 700),
+    $item-border-color: color($color:  'grays', $variant: 700),
+    $item-selected-text-color: #fff,
+    $item-selected-background: color($color: 'primary', $variant: 500),
+    $item-selected-border-color: color($color: 'primary', $variant: 500),
+    $item-selected-hover-background: color($color: 'primary', $variant: 600)
+);
+
+:host ::ng-deep {
+    @include button-group($custom-button-group);
+}

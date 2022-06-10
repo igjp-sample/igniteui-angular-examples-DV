@@ -1,0 +1,23 @@
+@use '../../../variables' as *;
+
+:host {
+    display: block;
+    padding: 16px;
+}
+
+.search {
+    margin-bottom: 12px;
+}
+
+.list-sample {
+    box-shadow: elevation($elevation: 2);
+}
+
+.favorite {
+    color: orange;
+}
+
+.item .delete-item:hover {
+    color: crimson;
+    cursor: pointer;
+}

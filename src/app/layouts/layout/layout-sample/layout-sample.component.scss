@@ -1,0 +1,31 @@
+@use '../../../../variables' as *;
+
+.layout-box {
+    width: 100%;
+    background: color($color: 'grays', $variant: 200);
+    padding: 8px;
+
+    .layout-box__el {
+        padding: 10px 20px;
+        margin: 8px;
+        background: color($color: 'secondary');
+        color: color($color: 'surface');
+    }
+
+    &.sidebar {
+        flex: 1;
+    }
+
+    &.content {
+        flex: 3;
+
+        .layout-box {
+            height: 400px;
+        }
+
+        .body {
+            background: none;
+            padding: 0;
+        }
+    }
+}

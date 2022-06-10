@@ -1,0 +1,26 @@
+@use '../../../variables' as *;
+
+$text-color: contrast-color($color: 'primary', $variant: 900);
+$background-color: color($color: "primary", $variant: 900);
+$border-yellow: #f2c43c;
+
+$custom-grid-theme: grid-theme(
+    $palette: $palette,
+    $cell-selected-text-color: $text-color,
+    $cell-active-border-color: $border-yellow,
+    $cell-selected-background: $background-color,
+    $cell-editing-background: $background-color
+);
+
+:host {
+    ::ng-deep {
+        @include grid($custom-grid-theme);
+    }
+}
+
+
+.wrapper {
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,23 @@
+.grid__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+    flex-flow: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.button-group-wrapper {
+    margin-bottom: 16px;
+}
+
+.igx-snackbar {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    display: flex;
+    igx-icon {
+        margin: 20px;
+    }
+}

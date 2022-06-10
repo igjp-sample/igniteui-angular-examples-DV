@@ -1,0 +1,45 @@
+@use '../../../variables' as *;
+
+$default-arrow-color: color($color: 'grays', $variant: 400);
+$default-arrow-hover-color: color($color: 'grays', $variant: 800);
+$default-arrow-all-color: color($color: 'secondary', $variant: 100);
+
+@mixin selector($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    min-width: 50px;
+    cursor: pointer;
+}
+
+.grid__wrapper {
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.header-selector {
+    @include selector(flex-end, flex-end);
+    height: 100%;
+    padding: 8px;
+}
+
+.row-selector {
+    @include selector(center, center);
+}
+
+::ng-deep {
+    .igx-grid__cbx-selection {
+        padding: 0;
+    }
+}
+
+.excel-style-arrow {
+    color: $default-arrow-color;
+    &:hover {
+        color: $default-arrow-hover-color;
+    }
+}
+
+.excel-style-arrow-all {
+    color: $default-arrow-all-color;
+}

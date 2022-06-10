@@ -1,0 +1,7 @@
+<igx-time-picker [(ngModel)]="date" mode="dialog" [inputFormat]="'hh:mm'">
+    <label igxLabel>Home Time </label>
+    <igx-picker-toggle igxSuffix>
+        <igx-icon>home</igx-icon>
+    </igx-picker-toggle>
+    <igx-hint>{{date.toLocaleString()}}</igx-hint>
+</igx-time-picker>

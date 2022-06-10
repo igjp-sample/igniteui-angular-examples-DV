@@ -1,0 +1,36 @@
+@use '../../../variables' as *;
+
+$custom-theme: grid-theme(
+  $cell-active-border-color: #FFCD0F,
+  $cell-selected-background: #6F6F6F,
+  $row-hover-background: #F8E495,
+  $row-selected-background: #8D8D8D,
+  $header-background: #494949,
+  $header-text-color: #FFF,
+  $expand-icon-color: #FFCD0F,
+  $expand-icon-hover-color: #E0B710,
+  $resize-line-color: #FFCD0F,
+  $row-highlight: #FFCD0F
+);
+
+:host {
+    ::ng-deep {
+        @include grid($custom-theme);
+    }
+}
+
+.grid__wrapper {
+    margin: 10px;
+}
+
+.cell__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+
+.name {
+    margin-left: 30px;
+}

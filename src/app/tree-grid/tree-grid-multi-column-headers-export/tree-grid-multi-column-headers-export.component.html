@@ -1,0 +1,35 @@
+<div class="grid__wrapper">
+    <igx-tree-grid igxPreventDocumentScroll  #treeGrid [data]="data" primaryKey="ID" [moving]="true" foreignKey="ParentID" [rowSelection]="selectionMode" height="740px"
+        displayDensity="compact" [allowFiltering]="true" width="100%">
+        <igx-grid-toolbar>
+            <igx-grid-toolbar-actions>
+                <igx-switch [(ngModel)]="exportHeaders">Export multi-column headers</igx-switch>
+                <igx-grid-toolbar-pinning></igx-grid-toolbar-pinning>
+                <igx-grid-toolbar-hiding></igx-grid-toolbar-hiding>
+                <igx-grid-toolbar-exporter [exportCSV]="false" [exportExcel]="true" (exportStarted)="exportStarted($event)">
+                </igx-grid-toolbar-exporter>
+            </igx-grid-toolbar-actions>
+        </igx-grid-toolbar>
+        <igx-column field="ID" dataType="number" [resizable]="true" [filterable]="false"></igx-column>
+        <igx-column field="Name" dataType="string" [sortable]="true" [resizable]="true" width="200px"></igx-column>
+        <igx-column-group [pinned]="false" header="General Information">
+            <igx-column field="HireDate" dataType="date" [sortable]="true" [resizable]="true"></igx-column>
+            <igx-column-group header="Personal Details">
+                <igx-column field="Title" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+                <igx-column field="Age" dataType="number" [sortable]="true" [resizable]="true"></igx-column>
+            </igx-column-group>
+        </igx-column-group>
+        <igx-column-group header="Address Information">
+            <igx-column-group header="Location">
+                <igx-column field="Country" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+                <igx-column field="City" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+                <igx-column field="Address" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+            </igx-column-group>
+            <igx-column-group header="Contact Information">
+                <igx-column field="Phone" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+                <igx-column field="Fax" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+                <igx-column field="PostalCode" dataType="string" [sortable]="true" [resizable]="true"></igx-column>
+            </igx-column-group>
+        </igx-column-group>
+    </igx-tree-grid>
+</div>

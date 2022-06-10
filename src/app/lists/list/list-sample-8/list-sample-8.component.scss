@@ -1,0 +1,22 @@
+@use '../../../../variables' as *;
+
+:host ::ng-deep {
+    $my-list-theme: list-theme(
+        $background: #0568ab
+    );
+
+    @include list($my-list-theme);
+}
+
+:host {
+    display: block;
+    padding: 16px;
+}
+
+.list-sample {
+    box-shadow: elevation($elevation: 2);
+}
+
+igx-icon {
+  cursor: pointer;
+}

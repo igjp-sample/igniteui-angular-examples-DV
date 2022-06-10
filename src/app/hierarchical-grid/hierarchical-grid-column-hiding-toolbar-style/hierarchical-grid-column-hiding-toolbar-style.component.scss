@@ -1,0 +1,29 @@
+@use '../../../variables' as *;
+
+$custom-column-actions-theme: column-actions-theme(
+    $background-color: steelblue,
+    $title-color: gold
+);
+
+$custom-button: button-theme($foreground: gold, $disabled-foreground: black);
+
+:host {
+    ::ng-deep {
+        @include column-actions($custom-column-actions-theme);
+        .igx-column-actions {
+            @include button($custom-button);
+        }
+    }
+}
+
+.hgrid_wrapper {
+    margin: 16px;
+}
+
+.photo {
+    vertical-align: middle;
+    max-height: 62px;
+}
+.cell__inner_2 {
+    margin: 1px
+}

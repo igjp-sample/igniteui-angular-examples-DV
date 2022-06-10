@@ -1,0 +1,40 @@
+@use '../../../../variables' as *;
+
+// Creating colors for all 3 shadows
+$color-1: #bcb8ce;
+$color-2: #917898;
+$color-3: #4c394f;
+
+// Use elevations to generate sass maps for all three
+// box-shadows with the costume colors
+$colorful-elevations: elevations($color-1, $color-2, $color-3);
+
+// Use the elevation to set the desired elevation level
+$custom-theme: card-theme(
+    $elevations: $colorful-elevations
+);
+
+:host {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 960px;
+    min-width: 250px;
+    padding: 24px;
+
+    .card-sample {
+        max-width: 300px;
+
+        + .card-sample {
+            margin-left: 24px;
+        }
+    }
+
+    ::ng-deep {
+        .custom-card {
+            @include card($custom-theme);
+        }
+    }
+}

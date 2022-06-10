@@ -1,0 +1,38 @@
+@use '../../../../variables' as *;
+
+@include dialog(
+    dialog-theme(
+        $palette: $palette,
+        $schema: $schema
+    )
+);
+
+@include dialog-typography($material-type-scale);
+
+:host {
+    display: block;
+    margin: 16px;
+
+    @include b(dialog) {
+        @extend %igx-dialog-window;
+
+        display: flex;
+        flex-direction: column;
+        max-width: rem(280px);
+
+        @include e(icon) {
+            position: absolute;
+            right: rem(24px);
+            top: rem(24px);
+            cursor: move;
+        }
+
+        @include e(title) {
+            @extend %igx-dialog-title;
+        }
+
+        @include e(content) {
+            @extend %igx-dialog-content;
+        }
+    }
+}

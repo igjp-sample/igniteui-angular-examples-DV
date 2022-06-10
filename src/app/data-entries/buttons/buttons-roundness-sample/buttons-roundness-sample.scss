@@ -1,0 +1,44 @@
+@use '../../../../variables' as *;
+
+$flatBtn: button-theme(
+    $border-radius: .5
+);
+
+$raisedBtn: button-theme(
+    $border-radius: 30px
+);
+
+$fabBtn: button-theme(
+    $border-radius: 10%
+);
+
+$iconBtn: button-theme(
+    $border-radius: .5 .2 .5 .2
+);
+
+.flat {
+    @include button($flatBtn);
+}
+
+.raised {
+    @include button($raisedBtn);
+}
+
+.fab {
+    @include button($fabBtn);
+}
+
+.icon {
+    @include button($iconBtn);
+}
+
+.buttons-sample {
+    display: flex;
+}
+
+.buttons-sample_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
